@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iphone_X",
+      "imgPath": "https://via.placeholder.com/600/92c952",
+      "category": "mobile",
+      "price": 12000
+    },
+    {
+      "id": 2,
+      "name": "accer",
+      "imgPath": "https://via.placeholder.com/600/771796",
+      "category": "labtop",
+      "price": 8000
+    },
+    {
+      "id": 3,
+      "name": "earbuds pro",
+      "imgPath": "https://via.placeholder.com/600/24f355",
+      "category": "headphone",
+      "price": 3000
+    },
+    {
+      "id": 4,
+      "name": "OPPO Reno5",
+      "imgPath": "https://via.placeholder.com/600/d32776",
+      "category": "mobile",
+      "price": 7000
+    },
+    {
+      "id": 5,
+      "name": "Dell 8776",
+      "imgPath": "https://via.placeholder.com/600/f66b97",
+      "category": "Laptop",
+      "price": 14500
+    },
+    {
+      "id": 6,
+      "name": "HP NoteBook",
+      "imgPath": "https://via.placeholder.com/600/56a8c2",
+      "category": "laptop",
+      "price": 11300
+    },
+    {
+      "id": 7,
+      "name": "Samsung headphone",
+      "imgPath": "https://via.placeholder.com/600/b0f7cc",
+      "category": "headphone",
+      "price": 2300
+    },
+    {
+      "id": 8,
+      "name": "Galaxy s20",
+      "imgPath": "https://via.placeholder.com/600/54176f",
+      "category": "mobile",
+      "price": 21000
+    }
+  ]
+}

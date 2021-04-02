@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+$main_color: cornflowerblue;
+
+body{
+  background-color: #eee;
+}
+.main-btn{
+  background-color: $main_color;
+  color: #fff;
+}

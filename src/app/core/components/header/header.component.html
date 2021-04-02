@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink='/products' routerLinkActive="active">Products</a>
+        <a class="nav-item nav-link" routerLink='/orders' routerLinkActive="active">Orders</a>
+      </div>
+      <div class="d-flex">
+
+        <div ngbDropdown class="d-inline-block mr-3">
+          <div class="cart-icon" ngbDropdownToggle>
+            <i class="fas fa-shopping-cart    "></i>
+            <span class="cart-items"></span>
+          </div>
+          <div ngbDropdownMenu>
+            <button ngbDropdownItem> <i class="fas fa-user    "></i> View/ Edit Profile</button>
+            <button ngbDropdownItem><i class="fas fa-sign-out-alt    "></i> Sign Out </button>
+          </div>
+        </div>
+        <div ngbDropdown class="d-inline-block">
+          <div class="user" ngbDropdownToggle> <img src="assets/img/default-user.png" width="30" alt="">
+            <!-- <span
+              class="mx-2"> Mohammad
+              Gamal </span>  -->
+          </div>
+          <div ngbDropdownMenu>
+            <button ngbDropdownItem> <i class="fas fa-user    "></i> View/ Edit Profile</button>
+            <button ngbDropdownItem><i class="fas fa-sign-out-alt    "></i> Sign Out </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</nav>

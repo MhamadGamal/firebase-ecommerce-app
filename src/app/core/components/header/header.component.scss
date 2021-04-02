@@ -1,0 +1,23 @@
+.navbar{
+  padding: 0;
+  .nav-link{
+    margin: 0 5px;
+    padding: 13px 30px;
+    transition: background-color .3s ease, color .3s ease;
+    &.active, &:hover{
+      background-color: cornflowerblue;
+      color: #fff;
+    }
+  }
+  .user, .cart-icon{
+    cursor: pointer;
+  }
+  .user::after{
+    vertical-align: 0.08em;
+  }
+  .cart-icon{
+    i{
+      font-size: 1.5rem;
+    }
+  }
+}
