@@ -17,9 +17,28 @@
             <i class="fas fa-shopping-cart    "></i>
             <span class="cart-items"> {{cartService.cartItemsCount}} </span>
           </div>
-          <div ngbDropdownMenu>
-            <button ngbDropdownItem> <i class="fas fa-user    "></i> View/ Edit Profile</button>
-            <button ngbDropdownItem><i class="fas fa-sign-out-alt    "></i> Sign Out </button>
+          <div style="width: 250px;" ngbDropdownMenu>
+            <div class="my-1 p-1 px-2" *ngFor="let item of cartService.cartItems">
+              <div class="d-flex align-items-start justify-content-lg-between">
+                <div class="col-7">
+                  <img width="20" [src]="item.imgPath" alt="">
+                  <span> {{item.name}} </span>
+                </div>
+                <div class="btn-group">
+                  <button class="btn action-btn btn-sm btn-danger"
+                    (click)="$event.stopPropagation(); updateCartItem('-', item)">-</button>
+                  <button class="btn action-btn btn-sm btn-success"
+                    (click)="$event.stopPropagation(); updateCartItem('+', item)">+</button>
+                </div>
+                <div class="delete">
+                  <i class="fas fa-trash  text-danger"
+                    (click)="$event.stopPropagation(); cartService.removeItemFromCart(item)"></i>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="cartService.cartItems.length" class="d-flex justify-content-end">
+              <button routerLink="/orders" class="btn main-btn"> Review Orders </button>
+            </div>
           </div>
         </div>
         <div ngbDropdown class="d-inline-block">

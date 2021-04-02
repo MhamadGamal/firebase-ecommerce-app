@@ -22,14 +22,19 @@ export class CartService {
   }
   // add item to cart and update local storage
   addItemToCart(item: IProduct) {
-    const index = this.cartItems.findIndex(i => i.id === item.id);
-    index >= 0 ? this.cartItems[index] = item : this.cartItems.push(item);
+    if (item.itemCount > 0) {
+      const index = this.cartItems.findIndex(i => i.id === item.id);
+      index >= 0 ? this.cartItems[index] = item : this.cartItems.push(item);
+    } else {
+      this.removeItemFromCart(item);
+    }
     this.update_Cart_Items_Count_Price();
   }
 
   // remove item from cart and update local storage
   removeItemFromCart(item: IProduct) {
-    this.cartItems.push(item);
+    const index = this.cartItems.findIndex(i => i.id === item.id)
+    this.cartItems.splice(index, 1);
     this.update_Cart_Items_Count_Price();
 
   }
