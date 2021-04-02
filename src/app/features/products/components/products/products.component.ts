@@ -8,7 +8,9 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  products: Array<IProduct>
+  products: Array<IProduct>;
+  filterValue = '';
+  view = 'grid'
   constructor(
     private productsService: ProductsService
   ) { }

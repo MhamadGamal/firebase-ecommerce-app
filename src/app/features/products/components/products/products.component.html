@@ -1,5 +1,24 @@
+<div class="row justify-content-center mb-4">
+  <div class="col-8">
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg"> <i class="fas fa-search    "></i></span>
+      </div>
+      <input type="text" class="form-control" aria-label="Large" placeholder="search" [(ngModel)]="filterValue"
+        aria-describedby="inputGroup-sizing-sm">
+    </div>
+  </div>
+</div>
+
+<div class="view my-2 d-flex justify-content-end align-items-center">
+  <b>View as: </b>
+  <i [class.active]="view === 'grid'" (click)="view = 'grid'" class="fas fa-th"></i>
+  <i [class.active]="view === 'list'" (click)="view = 'list'" class="fas fa-list    "></i>
+</div>
+
 <div class="row">
-  <div class="col-md-4 col-sm-6" *ngFor="let product of products">
+  <div [ngClass]="{'col-md-4 col-sm-6': view === 'grid', 'col-12': view === 'list'}"
+    *ngFor="let product of products | productsFilter: filterValue">
     <cart-item [item]="product"></cart-item>
   </div>
 </div>
