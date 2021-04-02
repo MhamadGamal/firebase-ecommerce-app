@@ -1,0 +1,59 @@
+<div *ngIf="checkedOut" class="alert alert-success" role="alert">
+  <strong>operation done successfully</strong>
+
+</div>
+
+<form [formGroup]="clientForm" (ngSubmit)="checkOut()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for=""> Full Name </label>
+        <input type="text" formControlName="name" class="form-control">
+        <small class="text-danger text"
+          *ngIf="clientForm.get('name')?.touched && clientForm.get('name')?.errors?.required "> this field is required
+        </small>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for=""> Phone Number </label>
+        <input type="text" formControlName="phoneNumber" class="form-control">
+        <small class="text-danger text"
+          *ngIf="clientForm.get('phoneNumber')?.touched && clientForm.get('phoneNumber')?.errors?.required "> this field
+          is required </small>
+        <small class="text-danger text"
+          *ngIf="clientForm.get('phoneNumber')?.touched && clientForm.get('phoneNumber')?.errors?.pattern "> please
+          enter valid phone number </small>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for=""> Email </label>
+        <input type="email" formControlName="email" class="form-control">
+        <small class="text-danger text"
+          *ngIf="clientForm.get('email')?.touched && clientForm.get('email')?.errors?.required "> this field is required
+        </small>
+        <small class="text-danger text"
+          *ngIf="clientForm.get('email')?.touched && clientForm.get('email')?.errors?.email "> please enter valid email
+        </small>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for=""> Address </label>
+        <input type="text" formControlName="address" class="form-control">
+        <small class="text-danger text"
+          *ngIf="clientForm.get('address')?.touched && clientForm.get('address')?.errors?.required "> this field is
+          required </small>
+
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-grou">
+        <button type="submit" class="btn main-btn" [disabled]="!clientForm.valid"> Submit </button>
+      </div>
+    </div>
+  </div>
+</form>

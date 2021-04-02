@@ -45,6 +45,13 @@ export class CartService {
     this.cartItemsCount = 0;
     this.cartItemsPrice = 0;
     this.cartItems.forEach(item => this.cartItemsCount += item.itemCount)
-    this.cartItems.forEach(item => this.cartItemsPrice += item.price)
+    this.cartItems.forEach(item => this.cartItemsPrice += (item.price * item.itemCount))
+  }
+
+  // reset all service data
+  reset() {
+    this.cartItems = [];
+    this.cartItemsCount = 0;
+    this.cartItemsPrice = 0;
   }
 }

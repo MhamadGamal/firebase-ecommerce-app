@@ -1,0 +1,35 @@
+<div *ngIf="cartService.cartItems.length; else noData">
+  <div class="d-flex justify-content-between mb-2">
+    <p>
+      <b>Total Price: </b> {{cartService.cartItemsPrice | currency}}
+    </p>
+    <button *ngIf="cartService.cartItems" routerLink="/orders/checkout" class="btn main-btn"> Order Now </button>
+  </div>
+  <table class="table table-striped">
+    <thead class="bg-dark text-light">
+      <tr>
+        <th>#</th>
+        <th>P_name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of cartService.cartItems; let i = index">
+        <td> {{i+1}} </td>
+        <td> {{p.name}} </td>
+        <td> {{p.itemCount}} </td>
+        <td> {{p.price | currency}} </td>
+        <td> {{(p.price * p.itemCount) | currency}} </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noData>
+  <div class="text-center">
+    <p> No such products in cart </p>
+    <a routerLink='/products' class="btn btn-dark"> Buy Products </a>
+  </div>
+</ng-template>

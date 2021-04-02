@@ -36,4 +36,9 @@ export class ProductsService {
     }
     return of(this.products);
   }
+
+  // reset all service data
+  reset() {
+    this.products = null;
+  }
 }
