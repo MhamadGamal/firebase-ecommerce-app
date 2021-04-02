@@ -10,7 +10,14 @@
       {{item.category}}
     </p>
     <div class="d-flex justify-content-between align-items-center">
-      <button type="button" class="btn main-btn btn-block">add to cart</button>
+      <div class="d-flex">
+        <input (click)="$event.stopPropagation()" type="number" min="0" class="col" value="itemNum"
+          [(ngModel)]="itemNum">
+      </div>
+      <button class="btn btn-sm btn-block main-btn" (click)="$event.stopPropagation();addToCart()">
+        <span *ngIf="item.itemCount > 0"> Update Cart </span>
+        <span *ngIf="item.itemCount == 0"> Add To Cart </span>
+      </button>
     </div>
   </div>
 </div>

@@ -4,4 +4,5 @@ export interface IProduct {
   imgPath?: string;
   category?: string;
   price?: number;
+  itemCount?: number;
 }

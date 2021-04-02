@@ -4,6 +4,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from 'src/app/shared/services/products.service';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -12,10 +13,12 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   item: IProduct;
+  itemNum;
   subsecription: Subscription = new Subscription();
   constructor(
     private ac: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private cartService: CartService
   ) {
   }
 
@@ -23,10 +26,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.subsecription.add(
       this.ac.params.subscribe(params => {
         this.productsService.getAllProducts().subscribe(products => {
-          this.item = products.find(p => p.id == params.id)
+          this.item = products.find(p => p.id == params.id);
+          this.itemNum = this.item.itemCount;
         })
       })
     )
+  }
+  addToCart() {
+    this.item.itemCount = this.itemNum;
+    // update cashed data item count in service
+    this.productsService.products.find(p => p.id === this.item.id ? p.itemCount = this.itemNum : null)
+    this.cartService.addItemToCart(this.item);
   }
   ngOnDestroy() {
     this.subsecription.unsubscribe()

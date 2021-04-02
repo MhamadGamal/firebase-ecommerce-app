@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand mr-5" href="#">E_Commerce</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
         <div ngbDropdown class="d-inline-block mr-3">
           <div class="cart-icon" ngbDropdownToggle>
             <i class="fas fa-shopping-cart    "></i>
-            <span class="cart-items"></span>
+            <span class="cart-items"> {{cartService.cartItemsCount}} </span>
           </div>
           <div ngbDropdownMenu>
             <button ngbDropdownItem> <i class="fas fa-user    "></i> View/ Edit Profile</button>
