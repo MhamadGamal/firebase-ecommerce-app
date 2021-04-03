@@ -25,4 +25,11 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  filter() {
+    if (this.filterValue) {
+      this.products = this.productsService.products?.filter(p => p.name.toLowerCase().startsWith(this.filterValue.toLowerCase()));
+    } else {
+      this.products = this.productsService.products;
+    }
+  }
 }

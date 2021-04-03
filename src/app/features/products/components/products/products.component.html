@@ -4,8 +4,8 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg"> <i class="fas fa-search    "></i></span>
       </div>
-      <input type="text" class="form-control" aria-label="Large" placeholder="search" [(ngModel)]="filterValue"
-        aria-describedby="inputGroup-sizing-sm">
+      <input type="text" class="form-control" (keyup)="filter()" aria-label="Large" placeholder="search"
+        [(ngModel)]="filterValue" aria-describedby="inputGroup-sizing-sm">
     </div>
   </div>
 </div>
@@ -15,10 +15,12 @@
   <i [class.active]="view === 'grid'" (click)="view = 'grid'" class="fas fa-th"></i>
   <i [class.active]="view === 'list'" (click)="view = 'list'" class="fas fa-list    "></i>
 </div>
-
 <div class="row">
-  <div [ngClass]="{'col-md-4 col-sm-6': view === 'grid', 'col-12': view === 'list'}"
-    *ngFor="let product of products | productsFilter: filterValue">
+  <div [ngClass]="{'col-md-4 col-sm-6': view === 'grid', 'col-12': view === 'list'}" *ngFor="let product of products">
     <cart-item [item]="product"></cart-item>
   </div>
 </div>
+
+<p *ngIf="!products?.length" class="text-center">
+  no data found ...
+</p>
