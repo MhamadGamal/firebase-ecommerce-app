@@ -1,4 +1,4 @@
-<div class="card product-card mb-4 shadow-sm" routerLink="/products/{{item.id}}">
+<div class="card product-card mb-4 shadow-sm">
   <img class="card-img-top" style="height: 225px; width: 100%; display: block;" [src]="item.imgPath"
     data-holder-rendered="true">
   <div class="card-body">
@@ -11,8 +11,7 @@
     </p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex">
-        <input (click)="$event.stopPropagation()" type="number" min="0" class="col" value="itemNum"
-          [(ngModel)]="itemNum">
+        <input type="number" min="0" numberOnly class="col" name="itemCount" [(ngModel)]="itemNum">
       </div>
       <button class="btn btn-sm btn-block main-btn" (click)="$event.stopPropagation();addToCart()">
         <span *ngIf="item.itemCount > 0"> Update Cart </span>

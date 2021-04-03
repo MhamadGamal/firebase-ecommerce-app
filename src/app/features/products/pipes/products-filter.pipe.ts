@@ -7,7 +7,7 @@ import { IProduct } from 'src/app/shared/models/product';
 export class ProductsFilterPipe implements PipeTransform {
 
   transform(products: IProduct[], searchValue: string): IProduct[] {
-    return products.filter(p => p.name.toLowerCase().startsWith(searchValue.toLowerCase()));
+    return products?.filter(p => p.name.toLowerCase().startsWith(searchValue.toLowerCase()));
   }
 
 }

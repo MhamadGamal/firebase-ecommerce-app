@@ -16,7 +16,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   declarations: [
     AppComponent,
     HeaderComponent
-
   ],
   imports: [
     BrowserModule,

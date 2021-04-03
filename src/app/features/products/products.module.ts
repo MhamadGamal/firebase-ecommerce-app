@@ -7,10 +7,11 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { CartItemComponent } from './components/products/cart-item/cart-item.component';
 import { FormsModule } from '@angular/forms';
 import { ProductsFilterPipe } from './pipes/products-filter.pipe'
+import { NumbersOnlyDirective } from 'src/app/shared/directives/numbersOnly';
 
 
 @NgModule({
-  declarations: [ProductsComponent, ProductDetailsComponent, CartItemComponent, ProductsFilterPipe],
+  declarations: [ProductsComponent, ProductDetailsComponent, CartItemComponent, ProductsFilterPipe, NumbersOnlyDirective],
   imports: [
     CommonModule,
     FormsModule,
