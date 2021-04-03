@@ -8,7 +8,8 @@ import { CartService } from 'src/app/shared/services/cart.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  name
+  name;
+  isMenuCollapsed = true;
   constructor(
     public cartService: CartService
   ) { }
