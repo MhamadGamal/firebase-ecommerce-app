@@ -1,3 +1,4 @@
+import { IOrder, IOrederProduct } from './../../../../shared/models/order';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -32,8 +33,18 @@ export class CheckoutComponent implements OnInit {
 
   // check out , send cart data and clear it from service
   checkOut() {
-    this.checkedOut = true;
-    this.cartService.reset();
-    this.productsService.reset();
+    // prepair order data Object
+    const orderProducts: IOrederProduct[] = this.cartService.cartItems.map(p => ({ product_id: p.id, product_itemCount: p.itemCount, unit_price: p.price }))
+    const order: IOrder = {
+      products: orderProducts,
+      orderTotalPrice: this.cartService.cartItemsPrice,
+      clientInfo: this.clientForm.value
+    }
+    this.productsService.saveOrder(order).then(() => {
+      this.checkedOut = true;
+      this.cartService.reset();
+      this.productsService.reset();
+    })
+
   }
 }

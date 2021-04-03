@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
 import { IProduct } from '../models/product';
 import { map } from 'rxjs/operators'
+import { IOrder } from '../models/order';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,11 @@ export class ProductsService {
   private dbPath = '/products';
 
   productssRef: AngularFireList<IProduct>;
+  ordersRef: AngularFireList<IOrder>;
 
   constructor(private db: AngularFireDatabase) {
     this.productssRef = this.db.list(this.dbPath);
+    this.ordersRef = this.db.list('/orders');
   }
 
   getAllProducts(): Observable<IProduct[]> {
@@ -35,6 +38,10 @@ export class ProductsService {
       )
     }
     return of(this.products);
+  }
+
+  saveOrder(order: IOrder) {
+    return this.ordersRef.push(order);
   }
 
   // reset all service data
