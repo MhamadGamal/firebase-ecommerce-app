@@ -13,3 +13,42 @@ body{
   background-color: $main_color;
   color: #fff;
 }
+
+.page-body{
+  position: relative;
+  .toggle-sidebar{
+    position: fixed;
+    right: 0;
+    top: 100px;
+    border-radius: 0 !important;
+  }
+  #side_menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    background-color: #fff;
+    box-shadow: -4px 0 10px rgba(0,0,0,.2);
+    transition: .5s ease width;
+    &.open{
+      width: 350px;
+    }
+  }
+
+}
+
+.cart-items{
+  position: absolute;
+  background-color: cornflowerblue;
+  display: inline-block;
+  left: -10px;
+  bottom: -5px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+}
